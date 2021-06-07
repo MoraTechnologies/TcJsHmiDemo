@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!-- Generated 10/15/04 by Microsoft SOAP Toolkit WSDL File Generator, Version 1.02.813.0 --> 
+<definitions  name ='TcAdsWebService'   targetNamespace = 'http://beckhoff.org/wsdl/'
+	 xmlns:wsdlns='http://beckhoff.org/wsdl/' 
+	 xmlns:typens='http://beckhoff.org/type' 
+	 xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+	 xmlns:stk='http://schemas.microsoft.com/soap-toolkit/wsdl-extension'
+	 xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+  <types>
+    <schema targetNamespace='http://beckhoff.org/type'
+      xmlns='http://www.w3.org/2001/XMLSchema'
+      xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/'
+      xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+      elementFormDefault='qualified'>
+    </schema>
+  </types>
+  <message name='TcAdsSync.Write'>
+    <part name='netId' type='xsd:string'/>
+    <part name='nPort' type='xsd:int'/>
+    <part name='indexGroup' type='xsd:unsignedInt'/>
+    <part name='indexOffset' type='xsd:unsignedInt'/>
+    <part name='pData' type='xsd:base64Binary'/>
+  </message>
+  <message name='TcAdsSync.WriteResponse'>
+  </message>
+  <message name='TcAdsSync.Read'>
+    <part name='netId' type='xsd:string'/>
+    <part name='nPort' type='xsd:int'/>
+    <part name='indexGroup' type='xsd:unsignedInt'/>
+    <part name='indexOffset' type='xsd:unsignedInt'/>
+    <part name='cbLen' type='xsd:int'/>
+  </message>
+  <message name='TcAdsSync.ReadResponse'>
+    <part name='ppData' type='xsd:base64Binary'/>
+  </message>
+  <message name='TcAdsSync.ReadWrite'>
+    <part name='netId' type='xsd:string'/>
+    <part name='nPort' type='xsd:int'/>
+    <part name='indexGroup' type='xsd:unsignedInt'/>
+    <part name='indexOffset' type='xsd:unsignedInt'/>
+    <part name='cbRdLen' type='xsd:int'/>
+    <part name='pwrData' type='xsd:base64Binary'/>
+  </message>
+  <message name='TcAdsSync.ReadWriteResponse'>
+    <part name='ppRdData' type='xsd:base64Binary'/>
+  </message>
+  <message name='TcAdsSync.ReadState'>
+    <part name='netId' type='xsd:string'/>
+    <part name='nPort' type='xsd:int'/>    
+  </message>
+  <message name='TcAdsSync.ReadStateResponse'>
+    <part name='pAdsState' type='xsd:int'/>
+    <part name='pDeviceState' type='xsd:int'/>
+  </message>
+  <message name='TcAdsSync.WriteControl'>
+    <part name='netId' type='xsd:string'/>
+    <part name='nPort' type='xsd:int'/>
+    <part name='adsState' type='xsd:int'/>
+    <part name='deviceState' type='xsd:int'/>
+    <part name='pData' type='xsd:base64Binary'/>
+  </message>
+  <message name='TcAdsSync.WriteControlResponse'>
+  </message>
+  <portType name='TcAdsSyncSoapPort'>
+    <operation name='Write' parameterOrder='netId nPort indexGroup indexOffset pData'>
+      <input message='wsdlns:TcAdsSync.Write' />
+      <output message='wsdlns:TcAdsSync.WriteResponse' />
+    </operation>
+    <operation name='Read' parameterOrder='netId nPort indexGroup indexOffset cbLen ppData'>
+      <input message='wsdlns:TcAdsSync.Read' />
+      <output message='wsdlns:TcAdsSync.ReadResponse' />
+    </operation>
+    <operation name='ReadWrite' parameterOrder='netId nPort indexGroup indexOffset cbRdLen ppRdData pwrData'>
+      <input message='wsdlns:TcAdsSync.ReadWrite' />
+      <output message='wsdlns:TcAdsSync.ReadWriteResponse' />
+    </operation>
+    <operation name='ReadState' parameterOrder='netId nPort pAdsState pDeviceState'>
+      <input message='wsdlns:TcAdsSync.ReadState' />
+      <output message='wsdlns:TcAdsSync.ReadStateResponse' />
+    </operation>
+    <operation name='WriteControl' parameterOrder='netId nPort adsState deviceState pData'>
+      <input message='wsdlns:TcAdsSync.WriteControl' />
+      <output message='wsdlns:TcAdsSync.WriteControlResponse' />
+    </operation>
+  </portType>
+  <binding name='TcAdsSyncSoapBinding' type='wsdlns:TcAdsSyncSoapPort' >
+    <stk:binding preferredEncoding='UTF-8'/>
+    <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' />
+    <operation name='Write' >
+      <soap:operation soapAction='http://beckhoff.org/action/TcAdsSync.Write' />
+      <input>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='Read' >
+      <soap:operation soapAction='http://beckhoff.org/action/TcAdsSync.Read' />
+      <input>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='ReadWrite' >
+      <soap:operation soapAction='http://beckhoff.org/action/TcAdsSync.ReadWrite' />
+      <input>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='ReadState' >
+      <soap:operation soapAction='http://beckhoff.org/action/TcAdsSync.ReadState' />
+      <input>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+    <operation name='WriteControl' >
+      <soap:operation soapAction='http://beckhoff.org/action/TcAdsSync.WriteControl' />
+      <input>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </input>
+      <output>
+        <soap:body use='encoded' namespace='http://beckhoff.org/message/'
+		  encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+      </output>
+    </operation>
+  </binding>
+  <service name='TcAdsWebService' >
+    <port name='TcAdsSyncSoapPort' binding='wsdlns:TcAdsSyncSoapBinding' >
+      <soap:address location='http://localhost/TcAdsWebService/TcAdsWebService.dll' />
+    </port>
+  </service>
+</definitions>

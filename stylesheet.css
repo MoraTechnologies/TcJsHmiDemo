@@ -1,0 +1,66 @@
+body {
+    height: 97vh;
+    background: linear-gradient(to top left, #2a2a72, #009ffd, #2a2a72);
+  } 
+  .logo {
+      align-content: left;
+      width: 320px;
+      height: auto;
+      vertical-align: top;
+      display: inline-block;
+      padding-left: 20px;
+      padding-top: 20px;
+  }
+  .title {
+    font-family: sans-serif;
+    font-size: 22px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+  }
+
+  h2 {
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    padding: 3px;
+    text-align: center;
+    vertical-align: top;
+    color: rgb(0, 0, 0);
+    }
+
+  .motor-wrapper {
+    padding: 5px;
+    border: 2px solid black;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    background-color: #FFFFFF;
+  }
+
+  .motor-image{
+    background-color: white;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+  }
+
+  .button-row {
+    height: 100px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .btn {
+    font-size: 1.6rem;
+    width: 150px;
+    height: 50px;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    margin: 5px;
+  }
